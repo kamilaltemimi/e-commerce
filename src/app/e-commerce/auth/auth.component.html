@@ -1,0 +1,31 @@
+<div class="page_container d-flex justify-content-center align-items-center">
+    <div *ngIf="!isPrivacyNoticeClicked" class="content_container">
+        <form class="form">
+            <h2 class="mb-3">Log in</h2>
+
+            <div class="mb-3">
+                <label class="label" for="email_address">Email address</label>
+                <input type="email" class="form-control" id="email_address">
+            </div>
+
+            <div class="mb-3">
+                <label class="label" for="password">Password</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+
+            <button type="submit" class="button mb-2 w-100 btn btn-warning">Continue</button>
+            <div class="w-100 d-flex justify-content-center">
+                <p class="privacy_notice">By clicking continue, you agree to our <span><a class="privacy_notice_click" (click)="switchPrivacyNoticeMode()">Privacy Notice</a></span></p>
+            </div>
+        </form>
+
+        <div class="register_option_container w-100 d-flex flex-column align-items-center">
+            <p class="mb-2 register_option_text">New to our store?</p>
+            <button type="button" class="button w-100 btn btn-warning">Create an account now!</button>
+        </div>
+    </div>
+
+    <div class="privacy_notice_container" *ngIf="isPrivacyNoticeClicked">
+        <app-privacy-notice></app-privacy-notice>
+    </div>
+</div>

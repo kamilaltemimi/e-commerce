@@ -1,0 +1,45 @@
+.page_container {
+    width: 100vw;
+    position: relative;
+}
+
+.content_container {
+    width: 350px;
+    height: 400px;
+    margin-top: 100px;
+    border: 1px solid #0000002e;
+    border-radius: 15px;
+    font-family: Roboto;
+}
+
+.form {
+    padding: 20px 20px 0 20px;
+}
+
+.label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.privacy_notice {
+    font-size: 12px;
+}
+
+.privacy_notice_click:hover {
+    cursor: pointer;
+    color: #ffa500;
+}
+
+.register_option_container {
+    padding: 0 20px 0 20px;
+}
+
+.register_option_text {
+    font-size: 14px;
+    color: #808080;
+}
+
+.privacy_notice_container {
+    position: absolute;
+    top: 0;
+}
