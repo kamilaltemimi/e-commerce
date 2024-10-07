@@ -18,8 +18,8 @@ export class AuthService {
         private http: HttpClient
     ) {}
 
-    getUsers(): Observable<User[]> {
-        return this.http.get<User[]>(`${this.URL}/users.json`)
+    changeIsLoggedInStatus(user: User): void {
+        this.isLoggedIn.next(user)
     }
 
     registerUser(user: User): Observable<User> {
