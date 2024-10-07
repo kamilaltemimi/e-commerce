@@ -1,6 +1,22 @@
 .privacy_notice_container {
     width: 100vw;
     height: 100vh;
-    background-color: #ff0000;
-    padding: 100px;
+    padding: 20px;
+    background-color: #00000043;
+}
+
+.content {
+    background-color: white;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.close_sign {
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }

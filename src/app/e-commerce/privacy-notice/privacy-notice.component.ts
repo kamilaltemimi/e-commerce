@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { PrivacyNoticeService } from '../../core/services/privacy-notice/privacy-notice.service';
 
 @Component({
     selector: 'app-privacy-notice',
@@ -9,5 +10,13 @@ import { Component } from '@angular/core'
 })
 
 export class PrivacyNoticeComponent {
+
+    constructor(
+        private privacyNoticeService: PrivacyNoticeService
+    ) {}
+
+    closePrivacyNotice(): void {
+        this.privacyNoticeService.changePrivacyNoticeStatus()
+    }
 
 }
