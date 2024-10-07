@@ -3,18 +3,18 @@
         <form class="form" [formGroup]="authForm" (ngSubmit)="submitAuthForm()">
             <h2 class="mb-3">Log in</h2>
 
-            <div class="mb-3">
+            <div class="mb-1">
                 <label class="label" for="email_address">Email address</label>
-                <input type="email" class="form-control" formControlName="email" id="email_address">
+                <input type="email" class="form-control" formControlName="email" id="email_address" maxlength="30">
             </div>
-
-            <div class="mb-3">
+            <p class="credentials_length mb-3">length: {{credentialsLength.email}} / 30</p>
+            <div class="mb-1">
                 <label class="label" for="password">Password</label>
-                <input type="password" class="form-control" formControlName="password" id="password">
+                <input type="password" class="form-control" formControlName="password" id="password" maxlength="30">
             </div>
-
-            <button *ngIf="authMethod === 'register'" type="submit" class="button mb-2 w-100 btn btn-warning">Continue</button>
-            <button *ngIf="authMethod === 'login'" type="submit" class="button mb-2 w-100 btn btn-warning">Continue</button>
+            <p class="credentials_length mb-3">length: {{credentialsLength.password}} / 30</p>
+            <p *ngIf="invalidCredentials" class="invalid_credentials">Invalid login credentials</p>
+            <button [disabled]="!authForm.valid" type="submit" class="button mb-2 w-100 btn btn-warning">Continue</button>
             <div class="w-100 d-flex justify-content-center">
                 <p class="privacy_notice">By clicking continue, you agree to our <span><a class="privacy_notice_click" (click)="changePrivacyNoticeStatus()">Privacy Notice</a></span></p>
             </div>

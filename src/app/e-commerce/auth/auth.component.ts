@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
 
 import { PrivacyNoticeComponent } from '../privacy-notice/privacy-notice.component'
 
 import { PrivacyNoticeService } from '../../core/services/privacy-notice/privacy-notice.service'
 import { AuthService } from '../../core/services/auth/auth.service'
+import { UserService } from '../../core/services/user/user.service'
 
 import { AuthMethod } from '../../core/enums/auth-method/auth-method.enum'
 import { User } from '../../core/interfaces/user.interface'
@@ -21,22 +23,35 @@ import { User } from '../../core/interfaces/user.interface'
 export class AuthComponent implements OnInit {
     
     isPrivacyNoticeActive = false
+    invalidCredentials = false
+
     authMethod = AuthMethod.login
 
-    users?: User[] | null
+    loginLength = 0
+    passwordLength = 0
+
+    users: User[] = []
 
     authForm!: FormGroup
+
+    credentialsLength = {
+        email: 0,
+        password: 0
+    }
 
     constructor(
         private privacyNoticeService: PrivacyNoticeService,
         private authService: AuthService,
-        private fb: FormBuilder
+        private userService: UserService,
+        private fb: FormBuilder,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
-        this.privacyNoticeService.privacyNoticeStatusObs.subscribe((data: boolean) => this.isPrivacyNoticeActive = data)
+        this.followPrivacyNoticeStatus()
         this.initializeForm()
         this.getUsers()
+        this.controlCredentialsLength()
     }
 
     changePrivacyNoticeStatus(): void {
@@ -44,6 +59,7 @@ export class AuthComponent implements OnInit {
     }
 
     switchAuthMethod(): void {
+        this.invalidCredentials = false
         if (this.authMethod === AuthMethod.login) {
             this.authMethod = AuthMethod.register
         } else {
@@ -53,7 +69,17 @@ export class AuthComponent implements OnInit {
 
     submitAuthForm(): void {
         if (this.authMethod === AuthMethod.login) {
-
+            const { password, email} = this.authForm.value
+            if (this.users) {
+                const userFound = this.users.find((user: User) => user.email === email && user.password === password)
+                if (userFound) {
+                    this.authService.changeIsLoggedInStatus(userFound)
+                    this.router.navigate([''])
+                    localStorage.setItem('user', JSON.stringify(userFound))
+                } else {
+                    this.invalidCredentials = true
+                }
+            }
         } else {
             const userToRegister = this.authForm.value
             this.authService.registerUser(userToRegister).subscribe()
@@ -62,14 +88,23 @@ export class AuthComponent implements OnInit {
 
     initializeForm(): void {
         this.authForm = this.fb.group({
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required]]
+            email: ['', [Validators.required, Validators.email, Validators.maxLength(30)]],
+            password: ['', [Validators.required, Validators.maxLength(30)]]
         })
     }
 
     getUsers(): void {
-        this.authService.getUsers().subscribe((data: User[] | null) => {
+        this.userService.getUsers().subscribe((data: User[]) => {
             this.users = data
         })
+    }
+
+    controlCredentialsLength(): void {
+        this.authForm.get('email')?.valueChanges.subscribe((data: string) => this.credentialsLength.email = data.length)
+        this.authForm.get('password')?.valueChanges.subscribe((data: string) => this.credentialsLength.password = data.length)
+    }
+
+    followPrivacyNoticeStatus(): void {
+        this.privacyNoticeService.privacyNoticeStatusObs.subscribe((data: boolean) => this.isPrivacyNoticeActive = data)
     }
 }

@@ -5,14 +5,10 @@
 
 .content_container {
     width: 350px;
-    height: 400px;
     margin-top: 100px;
     border: 1px solid #0000002e;
     border-radius: 15px;
-}
-
-.form {
-    padding: 20px 20px 0 20px;
+    padding: 30px;
 }
 
 .label {
@@ -29,10 +25,6 @@
     color: #ffa500;
 }
 
-.register_option_container {
-    padding: 0 20px 0 20px;
-}
-
 .register_option_text {
     font-size: 14px;
     color: #808080;
@@ -41,4 +33,14 @@
 .privacy_notice_container {
     position: absolute;
     top: 0;
+}
+
+.invalid_credentials {
+    color: #ff0000;
+    text-align: center;
+}
+
+.credentials_length {
+    font-size: 12px;
+    text-align: end;
 }
