@@ -1,31 +1,34 @@
 <div class="page_container d-flex justify-content-center align-items-center">
-    <div *ngIf="!isPrivacyNoticeClicked" class="content_container">
-        <form class="form">
+    <div class="content_container">
+        <form class="form" [formGroup]="authForm" (ngSubmit)="submitAuthForm()">
             <h2 class="mb-3">Log in</h2>
 
             <div class="mb-3">
                 <label class="label" for="email_address">Email address</label>
-                <input type="email" class="form-control" id="email_address">
+                <input type="email" class="form-control" formControlName="email" id="email_address">
             </div>
 
             <div class="mb-3">
                 <label class="label" for="password">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" formControlName="password" id="password">
             </div>
 
-            <button type="submit" class="button mb-2 w-100 btn btn-warning">Continue</button>
+            <button *ngIf="authMethod === 'register'" type="submit" class="button mb-2 w-100 btn btn-warning">Continue</button>
+            <button *ngIf="authMethod === 'login'" type="submit" class="button mb-2 w-100 btn btn-warning">Continue</button>
             <div class="w-100 d-flex justify-content-center">
-                <p class="privacy_notice">By clicking continue, you agree to our <span><a class="privacy_notice_click" (click)="switchPrivacyNoticeMode()">Privacy Notice</a></span></p>
+                <p class="privacy_notice">By clicking continue, you agree to our <span><a class="privacy_notice_click" (click)="changePrivacyNoticeStatus()">Privacy Notice</a></span></p>
             </div>
         </form>
 
         <div class="register_option_container w-100 d-flex flex-column align-items-center">
-            <p class="mb-2 register_option_text">New to our store?</p>
-            <button type="button" class="button w-100 btn btn-warning">Create an account now!</button>
+            <p *ngIf="authMethod === 'login'" class="mb-2 register_option_text">New to our store?</p>
+            <p *ngIf="authMethod === 'register'" class="mb-2 register_option_text">Already have an account?</p>
+            <button (click)="switchAuthMethod()" type="button" *ngIf="authMethod === 'login'" class="button w-100 btn btn-warning">Create an account now!</button>
+            <button (click)="switchAuthMethod()" type="button" *ngIf="authMethod === 'register'" class="button w-100 btn btn-warning">Switch to Log in</button>
         </div>
     </div>
 
-    <div class="privacy_notice_container" *ngIf="isPrivacyNoticeClicked">
+    <div class="privacy_notice_container" *ngIf="isPrivacyNoticeActive">
         <app-privacy-notice></app-privacy-notice>
     </div>
 </div>
