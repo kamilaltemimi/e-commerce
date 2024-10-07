@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from './core/services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,18 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'e-commerce';
+export class AppComponent implements OnInit {
+
+  constructor(
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    const userData = localStorage.getItem('user')
+    if (userData) {
+      const parsedData = JSON.parse(userData)
+      this.authService.changeIsLoggedInStatus(parsedData)
+    }
+  }
+
 }
