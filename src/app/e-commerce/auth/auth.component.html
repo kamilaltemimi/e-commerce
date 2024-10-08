@@ -1,7 +1,7 @@
 <div class="page_container d-flex justify-content-center align-items-center">
     <div class="content_container">
         <form class="form" [formGroup]="authForm" (ngSubmit)="submitAuthForm()">
-            <h2 class="mb-3">Log in</h2>
+            <h2 class="mb-3">{{authMethod}}</h2>
 
             <div class="mb-1">
                 <label class="label" for="email_address">Email address</label>
@@ -21,10 +21,10 @@
         </form>
 
         <div class="register_option_container w-100 d-flex flex-column align-items-center">
-            <p *ngIf="authMethod === 'login'" class="mb-2 register_option_text">New to our store?</p>
-            <p *ngIf="authMethod === 'register'" class="mb-2 register_option_text">Already have an account?</p>
-            <button (click)="switchAuthMethod()" type="button" *ngIf="authMethod === 'login'" class="button w-100 btn btn-warning">Create an account now!</button>
-            <button (click)="switchAuthMethod()" type="button" *ngIf="authMethod === 'register'" class="button w-100 btn btn-warning">Switch to Log in</button>
+            <p *ngIf="authMethod === 'Login'" class="mb-2 register_option_text">New to our store?</p>
+            <p *ngIf="authMethod === 'Register'" class="mb-2 register_option_text">Already have an account?</p>
+            <button (click)="switchAuthMethod()" type="button" *ngIf="authMethod === 'Login'" class="button w-100 btn btn-warning">Create an account now!</button>
+            <button (click)="switchAuthMethod()" type="button" *ngIf="authMethod === 'Register'" class="button w-100 btn btn-warning">Switch to Log in</button>
         </div>
     </div>
 
