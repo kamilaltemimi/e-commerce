@@ -1,0 +1,28 @@
+<!-- <div class="header_container w-100 d-flex justify-content-center align-items-center">
+    <div class="header_content_container">
+        <img class="logo" src="assets/images/logo.svg">
+    </div>
+</div> -->
+
+<div class="navbar bg-warning">
+    <div class="container-fluid content_container">
+        <img class="logo navbar-brand" src="assets/images/logo.svg">
+        <ul class="menu_list d-flex justify-content-between m-0">
+            <li class="menu_listitem" (click)="navigate('')">
+                Store
+            </li>
+            <li class="menu_listitem" (click)="navigate('basket')">
+                Basket
+            </li>
+            <li class="menu_listitem" (click)="navigate('contact')">
+                Contact              
+            </li>
+            <li class="menu_listitem" (click)="navigate('FAQ')">
+                FAQ
+            </li>
+            <li class="menu_listitem" (click)="logout()">
+                Logout
+            </li>
+        </ul>
+    </div>
+</div>
