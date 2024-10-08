@@ -1,1 +1,6 @@
-<router-outlet />
+<div class="window w-100">
+    <div class="app_container w-100 d-flex flex-column">
+        <app-header *ngIf="isLoggedIn"></app-header>
+        <router-outlet />
+    </div>
+</div>
