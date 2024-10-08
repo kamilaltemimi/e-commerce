@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "name": "Warehouse boxing gloves",
+        "description": "These boxing gloves are crafted for champions, featuring high-quality leather and advanced foam padding. They provide superior protection and comfort during intense training sessions. The ergonomic design ensures a snug fit, allowing for optimal hand movement and control.",
+        "price": 30.00,
+        "image": "../images/products/gloves/gloves1.jpg" 
+    },
+    {
+        "id": 2,
+        "name": "Twins Special",
+        "description": "Engineered for sparring, these gloves feature a dual-layer foam system that effectively absorbs shock. The ventilated mesh palms keep your hands cool, while the secure Velcro strap ensures a customized fit. Perfect for both beginners and experienced fighters, these gloves are a must-have for your training regimen.",
+        "price": 129.99,
+        "image": "../images/products/gloves/gloves2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Twins Rage",
+        "description": "Achieve your training goals with these durable gloves made from premium synthetic leather. The moisture-wicking lining helps keep your hands dry, ensuring maximum comfort throughout your workouts. They provide excellent protection and support, making them ideal for various training styles.",
+        "price": 132.00,
+        "image": "../images/products/gloves/gloves3.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Twins Dragon's Revenge",
+        "description": "Combining classic style with modern functionality, these gloves are made from top-grade leather for exceptional durability. The strategically placed padding offers enhanced knuckle protection, making them perfect for heavy bag workouts and sparring sessions.",
+        "price": 112.50,
+        "image": "../images/products/gloves/gloves4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Rival Performance",
+        "description": "Elevate your boxing skills with these high-performance gloves made from durable materials. The multi-layer foam padding offers exceptional impact resistance, while the anatomical design ensures comfort and support with every punch.",
+        "price": 60.00,
+        "image": "../images/products/gloves/gloves5.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Leone Combat Art",
+        "description": "These gloves are engineered for optimal performance during sparring sessions. With a durable outer shell and high-density foam padding, they provide superior protection against impacts. The ergonomic wrist design enhances stability, allowing you to focus on your technique.",
+        "price": 59.99,
+        "image": "../images/products/gloves/gloves6.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Reyes Mexico",
+        "description": "Get ready to push your limits with these heavy-duty gloves. Featuring reinforced stitching and premium materials, they are built to withstand rigorous training. The comfortable fit and excellent grip make them ideal for all types of workouts.",
+        "price": 260.00,
+        "image": "../images/products/gloves/gloves7.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Reyes Canelo",
+        "description": "Designed for competitive fighters, these lightweight gloves provide agility without compromising protection. The sleek design and form-fitting structure allow for quick punches and precise movements, making them perfect for high-level competition.",
+        "price": 254.00,
+        "image": "../images/products/gloves/gloves8.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Reyes Golden Boy",
+        "description": "These gloves feature an adjustable Velcro strap for a customized fit, providing stability and support during training. The padded wrist design enhances safety, while the durable outer material ensures longevity even under intense use.",
+        "price": 310.00,
+        "image": "../images/products/gloves/gloves9.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Rival Loma Style",
+        "description": "These all-purpose training gloves are suitable for various boxing disciplines. With their durable construction and comfortable fit, they provide excellent support for both training and sparring. The flexible design allows for easy movement, enhancing performance.",
+        "price": 110.50,
+        "image": "../images/products/gloves/gloves10.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Rival Strong",
+        "description": "These all-purpose training gloves are suitable for various boxing disciplines. With their durable construction and comfortable fit, they provide excellent support for both training and sparring. The flexible design allows for easy movement, enhancing performance.",
+        "price": 105.00,
+        "image": "../images/products/gloves/gloves11.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Fairtex Chaos",
+        "description": "These impact-resistant sparring gloves are engineered for safety and performance. Featuring a unique multi-layer foam construction, they effectively absorb shock and distribute impact force, protecting both you and your training partner. The secure wrist strap and padded cuffs ensure a snug fit, allowing you to focus on your technique without distractions during sparring sessions.",
+        "price": 199.99,
+        "image": "../images/products/gloves/gloves12.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Rival Knockout",
+        "description": "These impact-resistant sparring gloves are engineered for safety and performance. Featuring a unique multi-layer foam construction, they effectively absorb shock and distribute impact force, protecting both you and your training partner. The secure wrist strap and padded cuffs ensure a snug fit, allowing you to focus on your technique without distractions during sparring sessions.",
+        "price": 145.00,
+        "image": "../images/products/gloves/gloves13.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Overlord Safe Protection",
+        "description": "Designed for fighters who prioritize safety, these ultimate protection boxing gloves feature advanced shock-absorbing technology that minimizes the risk of injury. The multi-layer padding system is strategically placed to shield your hands during heavy strikes, while the breathable fabric lining keeps your hands dry and comfortable. With a secure fit and excellent wrist support, these gloves are perfect for both training and competition.",
+        "price": 49.99,
+        "image": "../images/products/gloves/gloves14.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Fairtex Soft",
+        "description": "These impact-resistant sparring gloves are engineered for safety and performance. Featuring a unique multi-layer foam construction, they effectively absorb shock and distribute impact force, protecting both you and your training partner. The secure wrist strap and padded cuffs ensure a snug fit, allowing you to focus on your technique without distractions during sparring sessions.",
+        "price": 200.99,
+        "image": "../images/products/gloves/gloves15.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Geezers Ultimate Punch",
+        "description": "These precision combat gloves are engineered for serious fighters looking for accuracy and control in every punch. Constructed from high-quality synthetic leather, they are lightweight yet incredibly durable. The specially designed finger compartment allows for enhanced grip and dexterity, while the strategic padding ensures maximum protection without sacrificing mobility. Ideal for both training and competition, these gloves provide the confidence you need to perform at your best.",
+        "price": 220.00,
+        "image": "../images/products/gloves/gloves16.jpg"
+    }
+]
