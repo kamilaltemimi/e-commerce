@@ -1,4 +1,4 @@
 export enum AuthMethod {
-    login = 'login',
-    register = 'register'
+    login = 'Login',
+    register = 'Register'
 }
