@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
-import { MainPageComponent } from './e-commerce/main-page/main-page.component';
+
 import { AuthGuard } from './core/guards/auth-guard/auth.guard';
-import { AuthComponent } from './e-commerce/auth/auth.component';
 import { LoggedInGuard } from './core/guards/logged-in-guard/logged-in.guard';
+
+import { MainPageComponent } from './e-commerce/main-page/main-page.component';
+import { AuthComponent } from './e-commerce/auth/auth.component';
 import { BasketComponent } from './e-commerce/basket/basket.component';
 import { CheckoutComponent } from './e-commerce/checkout/checkout.component';
 import { ContactComponent } from './e-commerce/contact/contact.component';
