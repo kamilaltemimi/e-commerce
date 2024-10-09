@@ -9,7 +9,7 @@ import { User } from '../../interfaces/user/user.interface'
 
 export class UserService {
 
-    URL = 'https://e-commerce-b1516-default-rtdb.firebaseio.com'
+    private URL = 'https://e-commerce-b1516-default-rtdb.firebaseio.com'
 
     constructor(
         private http: HttpClient
