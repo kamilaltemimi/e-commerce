@@ -14,7 +14,7 @@ export class LoggedInGuard implements CanActivate {
     ) {}
     
     canActivate(): Observable<boolean> {
-        return this.authService.isLoggedInObs.pipe(
+        return this.authService.isLoggedIn$.pipe(
             map((data: User | null) => {
                 if (!data) {
                     return true
