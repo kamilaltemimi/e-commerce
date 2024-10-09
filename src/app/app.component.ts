@@ -6,7 +6,7 @@ import { AuthService } from './core/services/auth/auth.service';
 
 import { HeaderComponent } from './shared/header/header.component';
 
-import { User } from './core/interfaces/user.interface';
+import { User } from './core/interfaces/user/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -33,5 +33,4 @@ export class AppComponent implements OnInit {
       this.isLoggedIn = status
     })
   }
-
 }
