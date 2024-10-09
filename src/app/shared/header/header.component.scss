@@ -21,3 +21,22 @@
     scale: 1.1;
     transition: 0.3s;
 }
+
+.basket_container {
+    position: relative;
+}
+
+.basket_quantity_circle {
+    position: absolute;
+    top: -10px;
+    right: -25px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50px;
+    color: #ffffff;
+    background-color: #ff0000;
+}
+
+.basket_quantity {
+    font-size: 13px;
+}
