@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "category": "gloves",
         "name": "Warehouse boxing gloves",
         "description": "These boxing gloves are crafted for champions, featuring high-quality leather and advanced foam padding. They provide superior protection and comfort during intense training sessions. The ergonomic design ensures a snug fit, allowing for optimal hand movement and control.",
         "price": 30.00,
@@ -8,6 +9,7 @@
     },
     {
         "id": 2,
+        "category": "gloves",
         "name": "Twins Special",
         "description": "Engineered for sparring, these gloves feature a dual-layer foam system that effectively absorbs shock. The ventilated mesh palms keep your hands cool, while the secure Velcro strap ensures a customized fit. Perfect for both beginners and experienced fighters, these gloves are a must-have for your training regimen.",
         "price": 129.99,
@@ -15,6 +17,7 @@
     },
     {
         "id": 3,
+        "category": "gloves",
         "name": "Twins Rage",
         "description": "Achieve your training goals with these durable gloves made from premium synthetic leather. The moisture-wicking lining helps keep your hands dry, ensuring maximum comfort throughout your workouts. They provide excellent protection and support, making them ideal for various training styles.",
         "price": 132.00,
@@ -22,6 +25,7 @@
     },
     {
         "id": 4,
+        "category": "gloves",
         "name": "Twins Dragon's Revenge",
         "description": "Combining classic style with modern functionality, these gloves are made from top-grade leather for exceptional durability. The strategically placed padding offers enhanced knuckle protection, making them perfect for heavy bag workouts and sparring sessions.",
         "price": 112.50,
@@ -29,6 +33,7 @@
     },
     {
         "id": 5,
+        "category": "gloves",
         "name": "Rival Performance",
         "description": "Elevate your boxing skills with these high-performance gloves made from durable materials. The multi-layer foam padding offers exceptional impact resistance, while the anatomical design ensures comfort and support with every punch.",
         "price": 60.00,
@@ -36,6 +41,7 @@
     },
     {
         "id": 6,
+        "category": "gloves",
         "name": "Leone Combat Art",
         "description": "These gloves are engineered for optimal performance during sparring sessions. With a durable outer shell and high-density foam padding, they provide superior protection against impacts. The ergonomic wrist design enhances stability, allowing you to focus on your technique.",
         "price": 59.99,
@@ -43,6 +49,7 @@
     },
     {
         "id": 7,
+        "category": "gloves",
         "name": "Reyes Mexico",
         "description": "Get ready to push your limits with these heavy-duty gloves. Featuring reinforced stitching and premium materials, they are built to withstand rigorous training. The comfortable fit and excellent grip make them ideal for all types of workouts.",
         "price": 260.00,
@@ -50,6 +57,7 @@
     },
     {
         "id": 8,
+        "category": "gloves",
         "name": "Reyes Canelo",
         "description": "Designed for competitive fighters, these lightweight gloves provide agility without compromising protection. The sleek design and form-fitting structure allow for quick punches and precise movements, making them perfect for high-level competition.",
         "price": 254.00,
@@ -57,6 +65,7 @@
     },
     {
         "id": 9,
+        "category": "gloves",
         "name": "Reyes Golden Boy",
         "description": "These gloves feature an adjustable Velcro strap for a customized fit, providing stability and support during training. The padded wrist design enhances safety, while the durable outer material ensures longevity even under intense use.",
         "price": 310.00,
@@ -64,6 +73,7 @@
     },
     {
         "id": 10,
+        "category": "gloves",
         "name": "Rival Loma Style",
         "description": "These all-purpose training gloves are suitable for various boxing disciplines. With their durable construction and comfortable fit, they provide excellent support for both training and sparring. The flexible design allows for easy movement, enhancing performance.",
         "price": 110.50,
@@ -71,6 +81,7 @@
     },
     {
         "id": 11,
+        "category": "gloves",
         "name": "Rival Strong",
         "description": "These all-purpose training gloves are suitable for various boxing disciplines. With their durable construction and comfortable fit, they provide excellent support for both training and sparring. The flexible design allows for easy movement, enhancing performance.",
         "price": 105.00,
@@ -78,6 +89,7 @@
     },
     {
         "id": 12,
+        "category": "gloves",
         "name": "Fairtex Chaos",
         "description": "These impact-resistant sparring gloves are engineered for safety and performance. Featuring a unique multi-layer foam construction, they effectively absorb shock and distribute impact force, protecting both you and your training partner. The secure wrist strap and padded cuffs ensure a snug fit, allowing you to focus on your technique without distractions during sparring sessions.",
         "price": 199.99,
@@ -85,6 +97,7 @@
     },
     {
         "id": 13,
+        "category": "gloves",
         "name": "Rival Knockout",
         "description": "These impact-resistant sparring gloves are engineered for safety and performance. Featuring a unique multi-layer foam construction, they effectively absorb shock and distribute impact force, protecting both you and your training partner. The secure wrist strap and padded cuffs ensure a snug fit, allowing you to focus on your technique without distractions during sparring sessions.",
         "price": 145.00,
@@ -92,6 +105,7 @@
     },
     {
         "id": 14,
+        "category": "gloves",
         "name": "Overlord Safe Protection",
         "description": "Designed for fighters who prioritize safety, these ultimate protection boxing gloves feature advanced shock-absorbing technology that minimizes the risk of injury. The multi-layer padding system is strategically placed to shield your hands during heavy strikes, while the breathable fabric lining keeps your hands dry and comfortable. With a secure fit and excellent wrist support, these gloves are perfect for both training and competition.",
         "price": 49.99,
@@ -99,6 +113,7 @@
     },
     {
         "id": 15,
+        "category": "gloves",
         "name": "Fairtex Soft",
         "description": "These impact-resistant sparring gloves are engineered for safety and performance. Featuring a unique multi-layer foam construction, they effectively absorb shock and distribute impact force, protecting both you and your training partner. The secure wrist strap and padded cuffs ensure a snug fit, allowing you to focus on your technique without distractions during sparring sessions.",
         "price": 200.99,
@@ -106,9 +121,178 @@
     },
     {
         "id": 16,
+        "category": "gloves",
         "name": "Geezers Ultimate Punch",
         "description": "These precision combat gloves are engineered for serious fighters looking for accuracy and control in every punch. Constructed from high-quality synthetic leather, they are lightweight yet incredibly durable. The specially designed finger compartment allows for enhanced grip and dexterity, while the strategic padding ensures maximum protection without sacrificing mobility. Ideal for both training and competition, these gloves provide the confidence you need to perform at your best.",
         "price": 220.00,
         "image": "../images/products/gloves/gloves16.jpg"
+    },
+    {
+        "id": 17,
+        "category": "bag",
+        "name": "Octagon training bag",
+        "description": "This heavy-duty training bag is built to withstand intense workouts, made from reinforced materials for maximum durability. The spacious interior allows for easy storage of all your essential gear. With padded shoulder straps and a comfortable grip handle, it's perfect for everyday training sessions.",
+        "price": 45.00,
+        "image": "../images/products/bags/bag1.jpg"
+    },    
+    {
+        "id": 18,
+        "category": "bag",
+        "name": "Leone Smart Bag",
+        "description": "This ventilated sports bag is ideal for carrying sweaty gear post-workout, featuring breathable mesh panels to enhance airflow. The large main compartment and additional zippered pockets provide plenty of room for equipment. The adjustable strap and ergonomic design ensure comfort and ease of use.",
+        "price": 60.00,
+        "image": "../images/products/bags/bag2.jpg"
+    },
+    {
+        "id": 19,
+        "category": "bag",
+        "name": "Pitbull Hard Division training bag",
+        "description": "This multi-compartment sports bag offers exceptional organization with dedicated sections for shoes, clothing, and accessories. Its durable fabric and reinforced zippers ensure longevity, even during daily use. The padded shoulder strap adds comfort, making it the perfect companion for gym and training sessions.",
+        "price": 45.00,
+        "image": "../images/products/bags/bag3.jpg"
+    },
+    {
+        "id": 20,
+        "category": "bag",
+        "name": "Venum Nightmare Gym Bag",
+        "description": "Designed to protect your gear from the elements, this waterproof training duffel features a tough, water-resistant exterior. The spacious main compartment and secure zippered pockets provide ample storage for all your essentials. Lightweight yet sturdy, it’s ideal for both indoor workouts and outdoor activities.",
+        "price": 45.00,
+        "image": "../images/products/bags/bag4.jpg"
+    },
+    {
+        "id": 21,
+        "category": "head",
+        "name": "Overlord Sparring headguard",
+        "description": "This full-face protective headgear offers maximum coverage, shielding the forehead, chin, and cheeks from heavy impacts. Made with high-density foam padding, it absorbs shock effectively while maintaining comfort during long training sessions. The adjustable straps ensure a secure fit for optimal protection and performance.",
+        "price": 40.00,
+        "image": "../images/products/head/head1.jpg"
+    },
+    {
+        "id": 22,
+        "category": "head",
+        "name": "Reyes Professional Boxing Headguard",
+        "description": "This ultra-breathable training headgear is designed with ventilation in mind, allowing airflow to keep you cool during rigorous workouts. The multi-layered foam padding protects against head injuries without compromising comfort. It’s lightweight and features a secure closure system to prevent shifting during training.",
+        "price": 299.00,
+        "image": "../images/products/head/head2.jpg"
+    },
+    {
+        "id": 23,
+        "category": "head",
+        "name": "Rivall full protect",
+        "description": "This full-face protective headgear offers maximum coverage, shielding the forehead, chin, and cheeks from heavy impacts. Made with high-density foam padding, it absorbs shock effectively while maintaining comfort during long training sessions. The adjustable straps ensure a secure fit for optimal protection and performance.",
+        "price": 150.00,
+        "image": "../images/products/head/head3.jpg"
+    },
+    {
+        "id": 24,
+        "category": "head",
+        "name": "Twins TotalPunch Headguard",
+        "description": "This shock-absorbing open-face headgear combines protection with freedom of movement. Engineered with advanced padding technology, it disperses impact force to minimize injury risk. The adjustable chin strap and ergonomic fit ensure stability, making it ideal for sparring and competition.",
+        "price": 90.00,
+        "image": "../images/products/head/head4.jpg"
+    },
+    {
+        "id": 25,
+        "category": "head",
+        "name": "Rival Pro Protect",
+        "description": "This advanced gel-infused headgear offers enhanced shock absorption by incorporating gel layers into the foam padding. The snug, ergonomic design provides full coverage while maintaining comfort during long training sessions. Its moisture-wicking lining ensures that sweat is kept at bay, keeping you focused and cool in the ring.",
+        "price": 130.00,
+        "image": "../images/products/head/head5.jpg"
+    },
+    {
+        "id": 26,
+        "category": "heavybag",
+        "name": "DBX heavybag",
+        "description": "This heavy-duty boxing punching bag is designed to endure the toughest training sessions, made from durable, tear-resistant material. Its reinforced stitching and robust construction ensure longevity, even under powerful strikes. The bag’s balanced weight distribution provides a stable target for improving strength, technique, and endurance, making it ideal for both beginners and seasoned athletes.",
+        "price": 115.00,
+        "image": "../images/products/heavybags/heavybag1.jpg"
+    },
+    {
+        "id": 27,
+        "category": "mouthguard",
+        "name": "ShockDoctor Protect mouthguard",
+        "description": "This professional-grade mouthguard offers advanced protection with a multi-layer design that absorbs and disperses impacts efficiently. The ergonomic shape ensures a snug, comfortable fit, while the included case keeps the mouthguard clean and safe when not in use. Perfect for athletes at all levels, it combines durability with superior dental protection.",
+        "price": 75.00,
+        "image": "../images/products/mouthguards/mouthguard1.jpg"
+    },
+    {
+        "id": 28,
+        "category": "mouthguard",
+        "name": "Competition mouthguard",
+        "description": "This basic protective mouthguard is designed for casual athletes who want to safeguard their dental health. Made from durable material, it provides a solid barrier against accidental blows to the face. Its slim profile allows for a natural fit, ensuring that you can focus on your performance without distraction.",
+        "price": 25.00,
+        "image": "../images/products/mouthguards/mouthguard2.jpg"
+    },
+    {
+        "id": 29,
+        "category": "mouthguard",
+        "name": "Ground Game advanced mouthguard",
+        "description": "This single-layer mouthguard is lightweight and easy to wear, providing essential protection for your teeth during training and competition. Its flexible design ensures comfort while allowing for easy breathing and speaking. Ideal for boxers and martial artists, it offers reliable defense against impacts without feeling bulky.",
+        "price": 19.99,
+        "image": "../images/products/mouthguards/mouthguard3.jpg"
+    },
+    {
+        "id": 30,
+        "category": "pads",
+        "name": "Rival professional pads",
+        "description": "These premium focus pads are designed for precision training, allowing coaches and athletes to practice striking accuracy and speed. Made from high-quality synthetic leather, they feature multi-layer foam padding to absorb shock effectively. The lightweight design and ergonomic shape ensure a secure grip, making them perfect for fast-paced training sessions and improving overall technique.",
+        "price": 179.99,
+        "image": "../images/products/pads/pads1.jpg"
+    },
+    {
+        "id": 31,
+        "category": "pads",
+        "name": "Venum Go Pads",
+        "description": "These versatile curved target pads are designed for dynamic training sessions, allowing for a range of striking angles and techniques. Crafted from durable synthetic leather, they feature high-density foam for optimal shock absorption. The contoured shape enhances precision training, while the adjustable wrist strap provides a secure fit, making them ideal for both amateur and professional fighters.",
+        "price": 80.00,
+        "image": "../images/products/pads/pads2.jpg"
+    },
+    {
+        "id": 32,
+        "category": "shoes",
+        "name": "Addidas Wrestling shoes",
+        "description": "These specialized wrestling shoes are perfect for grappling and ground techniques, featuring a lightweight design that enhances agility. The unique outsole pattern offers superior grip on mats, ensuring stability during takedowns and transitions. With a snug fit and breathable material, they provide comfort and support for both training and competition.",
+        "price": 80.99,
+        "image": "../images/products/shoes/shoes1.jpg"
+    },
+    {
+        "id": 33,
+        "category": "shoes",
+        "name": "Addidas Boxing shoes",
+        "description": "These lightweight boxing shoes are designed for agility and speed, featuring a breathable mesh upper that keeps your feet cool during intense training. The rubber outsole provides excellent grip on various surfaces, allowing for quick pivots and movements in the ring. With a padded collar and cushioned insole, they ensure maximum comfort and support throughout your workout.",
+        "price": 79.00,
+        "image": "../images/products/shoes/shoes2.jpg"
+    },
+    {
+        "id": 34,
+        "category": "shoes",
+        "name": "Addidas PRO boxing shoes",
+        "description": "Crafted from high-quality leather, these premium boxing shoes deliver exceptional durability and style. The soft lining and padded insole provide ultimate comfort, while the breathable design keeps your feet dry during rigorous workouts. The classic design features a non-marking outsole for versatile use in the gym or ring.",
+        "price": 120.00,
+        "image": "../images/products/shoes/shoes3.jpg"
+    },
+    {
+        "id": 35,
+        "category": "wraps",
+        "name": "Ground Game WRAPS",
+        "description": "These cotton hand wraps provide excellent protection and support for your hands and wrists during training. Made from soft, breathable fabric, they ensure comfort while absorbing moisture to keep your hands dry. The thumb loop and hook-and-loop closure allow for a secure fit, making them ideal for both beginners and experienced boxers.",
+        "price": 9.99,
+        "image": "../images/products/wraps/wraps1.jpg"
+    },
+    {
+        "id": 36,
+        "category": "wraps",
+        "name": "RDX Competition Wraps",
+        "description": "These stretch fabric hand wraps are designed for ultimate comfort and flexibility, ensuring a secure fit during all types of training. Made from a soft, elastic material, they allow for easy movement while providing crucial support to the hands and wrists. Their thumb loop and hook-and-loop closure ensure they stay in place, making them an essential accessory for any boxer or martial artist.",
+        "price": 7.50,
+        "image": "../images/products/wraps/wraps2.jpg"
+    },
+    {
+        "id": 37,
+        "category": "wraps",
+        "name": "Reyes Pro Wrapps",
+        "description": "Designed for optimal support, these Mexican-style hand wraps are made from a stretchy, durable blend that conforms to the shape of your hands. Their longer length provides extra coverage for the wrist and knuckles, ensuring maximum protection during intense workouts. The lightweight material promotes breathability, making them perfect for extended training sessions.",
+        "price": 39.00,
+        "image": "../images/products/wraps/wraps3.jpg"
     }
 ]
