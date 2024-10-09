@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { AuthService } from './core/services/auth/auth.service';
+import { BasketService } from './core/services/basket/basket.service';
 
 import { HeaderComponent } from './shared/header/header.component';
 
@@ -17,20 +18,36 @@ import { User } from './core/interfaces/user/user.interface';
 })
 export class AppComponent implements OnInit {
 
-  isLoggedIn: User | null = null
+  public isLoggedIn: User | null = null
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private basketService: BasketService
   ) {}
 
   ngOnInit(): void {
+    this.getLocalStorage()
+  }
+
+  getLocalStorage(): void {
     const userData = localStorage.getItem('user')
     if (userData) {
       const parsedData = JSON.parse(userData)
       this.authService.changeIsLoggedInStatus(parsedData)
     }
-    this.authService.isLoggedInObs.subscribe((status: User | null) => {
+    this.authService.isLoggedIn$.subscribe((status: User | null) => {
       this.isLoggedIn = status
     })
+
+    const basketData = localStorage.getItem('basket')
+    if (basketData) {
+      const parsedBasketData = JSON.parse(basketData)
+      this.basketService.setBasketData = parsedBasketData
+    }
+
+    const basketQuantity = localStorage.getItem('basketQuantity')
+    if (basketQuantity) {
+      this.basketService.setBasketQuantity = JSON.parse(basketQuantity)
+    }
   }
 }
