@@ -1,9 +1,9 @@
 export enum ProductCategory {
-    bags = 'bags',
+    bags = 'bag',
     gloves = 'gloves',
-    head = 'headguards',
-    heavybags = 'heavybags',
-    mouthguards = 'mouthguards',
+    head = 'head',
+    heavybags = 'heavybag',
+    mouthguards = 'mouthguard',
     pads = 'pads',
     shoes = 'shoes',
     wraps = 'wraps'
