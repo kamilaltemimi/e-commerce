@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
@@ -10,7 +10,9 @@ import { AuthService } from '../../core/services/auth/auth.service'
 import { UserService } from '../../core/services/user/user.service'
 
 import { AuthMethod } from '../../core/enums/auth-method/auth-method.enum'
-import { User } from '../../core/interfaces/user.interface'
+import { User } from '../../core/interfaces/user/user.interface'
+
+import { Subject, takeUntil } from 'rxjs'
 
 @Component({
     selector: 'app-auth',
@@ -20,7 +22,7 @@ import { User } from '../../core/interfaces/user.interface'
     styleUrl: './auth.component.scss'
 })
 
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy {
     
     isPrivacyNoticeActive = false
     invalidCredentials = false
@@ -39,6 +41,8 @@ export class AuthComponent implements OnInit {
         password: 0
     }
 
+    unsubscribe$ = new Subject<void>()
+
     constructor(
         private privacyNoticeService: PrivacyNoticeService,
         private authService: AuthService,
@@ -52,6 +56,11 @@ export class AuthComponent implements OnInit {
         this.initializeForm()
         this.getUsers()
         this.controlCredentialsLength()
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribe$.next()
+        this.unsubscribe$.complete()
     }
 
     changePrivacyNoticeStatus(): void {
@@ -82,7 +91,9 @@ export class AuthComponent implements OnInit {
             }
         } else {
             const userToRegister = this.authForm.value
-            this.authService.registerUser(userToRegister).subscribe()
+            this.authService.registerUser(userToRegister)
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe()
         }
     }
 
@@ -100,11 +111,17 @@ export class AuthComponent implements OnInit {
     }
 
     controlCredentialsLength(): void {
-        this.authForm.get('email')?.valueChanges.subscribe((data: string) => this.credentialsLength.email = data.length)
-        this.authForm.get('password')?.valueChanges.subscribe((data: string) => this.credentialsLength.password = data.length)
+        this.authForm.get('email')?.valueChanges
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe((data: string) => this.credentialsLength.email = data.length)
+        this.authForm.get('password')?.valueChanges
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe((data: string) => this.credentialsLength.password = data.length)
     }
 
     followPrivacyNoticeStatus(): void {
-        this.privacyNoticeService.privacyNoticeStatusObs.subscribe((data: boolean) => this.isPrivacyNoticeActive = data)
+        this.privacyNoticeService.privacyNoticeStatusObs
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe((data: boolean) => this.isPrivacyNoticeActive = data)
     }
 }
