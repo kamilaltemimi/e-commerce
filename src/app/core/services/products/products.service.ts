@@ -12,9 +12,9 @@ import { RoutingService } from '../routing/routing.service';
 export class ProductsService {
 
     private selectedProduct = new BehaviorSubject<Product | null>(null)
-    selectedProductObs = this.selectedProduct.asObservable()
+    public selectedProduct$ = this.selectedProduct.asObservable()
 
-    URL = 'assets/data/products.json'
+    private URL = 'assets/data/products.json'
 
     constructor(
         private http: HttpClient,
