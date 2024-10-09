@@ -19,6 +19,7 @@ import { Subject, takeUntil } from 'rxjs'
 export class MainPageComponent implements OnInit, OnDestroy {
 
     products: Product[] = []
+    filteredProducts: Product[] = []
     
     productCategories = Object.values(ProductCategory)
 
@@ -33,13 +34,9 @@ export class MainPageComponent implements OnInit, OnDestroy {
     ) {}
 
     get paginatedProducts(): Product[] {
-        if (this.currentPage === 1) {
-            return this.products.slice(0, 8)
-        } else {
-            const startIndex = (this.currentPage - 1) * 8
-            const endIndex = this.currentPage * 8
-            return this.products.slice(startIndex, endIndex)
-        }
+        const productsToPaginate = this.filteredProducts.length > 0 ? this.filteredProducts : this.products
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage
+        return productsToPaginate.slice(startIndex, startIndex + this.itemsPerPage)
     }
 
     ngOnInit(): void {
@@ -56,11 +53,29 @@ export class MainPageComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe((data: Product[]) => {
             this.products = data
+            this.filteredProducts = data
+            this.calculateTotalPages()
         })
+    }
+
+    filterProducts(category: Event): void {
+        const selectedCategory = (category.target as HTMLSelectElement).value
+        if (selectedCategory) {
+            this.filteredProducts = this.products.filter((product: Product) => product.category === selectedCategory)
+        } else {
+            this.filteredProducts = this.products
+        }
+        this.currentPage = 1
+        this.calculateTotalPages()
     }
 
     selectProduct(product: Product) {
         this.productsService.selectProduct(product)
+    }
+
+    calculateTotalPages(): void {
+        const totalItems = this.filteredProducts.length;
+        this.totalPages = Math.ceil(totalItems / this.itemsPerPage);
     }
 
     previousPage(): void {
