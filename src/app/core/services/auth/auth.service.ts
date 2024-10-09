@@ -11,9 +11,9 @@ import { Router } from '@angular/router'
 export class AuthService {
 
     private isLoggedIn = new BehaviorSubject<User | null>(null)
-    public isLoggedInObs = this.isLoggedIn.asObservable()
+    public isLoggedIn$ = this.isLoggedIn.asObservable()
 
-    URL = 'https://e-commerce-b1516-default-rtdb.firebaseio.com'
+    private URL = 'https://e-commerce-b1516-default-rtdb.firebaseio.com'
 
     constructor(
         private http: HttpClient,
