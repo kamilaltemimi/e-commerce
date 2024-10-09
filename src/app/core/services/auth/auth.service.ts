@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 
 import { BehaviorSubject, Observable } from 'rxjs'
 
-import { User } from '../../interfaces/user.interface'
+import { User } from '../../interfaces/user/user.interface'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 

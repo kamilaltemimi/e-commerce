@@ -3,7 +3,7 @@ import { CanActivate, Router } from '@angular/router'
 
 import { AuthService } from '../../services/auth/auth.service'
 
-import { User } from '../../interfaces/user.interface'
+import { User } from '../../interfaces/user/user.interface'
 
 import { map, Observable } from 'rxjs'
 
