@@ -1,27 +1,32 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 
 import { ProductsService } from '../../core/services/products/products.service';
+import { BasketService } from '../../core/services/basket/basket.service';
 
 import { Product } from '../../core/interfaces/product/product.interface';
 
 import { Subject, takeUntil } from 'rxjs';
 
+import { CommonModule } from '@angular/common';
+
 @Component({
     selector: 'app-product',
     standalone: true,
-    imports: [],
+    imports: [CommonModule],
     templateUrl: './product.component.html',
     styleUrl: './product.component.scss'
 })
 
 export class ProductComponent implements OnInit, OnDestroy {
 
-    selectedProduct: Product | null = null
-
+    public selectedProduct: Product | null = null
+    public purchaseMessage = false
+    
     private unsubscribe$ = new Subject<void>()
 
     constructor(
-        private productsService: ProductsService
+        private productsService: ProductsService,
+        private basketService: BasketService
     ) {}
 
     ngOnInit(): void {
@@ -35,7 +40,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     }
 
     getSelectedProductData(): void {
-        this.productsService.selectedProductObs
+        this.productsService.selectedProduct$
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe((data: Product | null) => {
             this.selectedProduct = data
@@ -51,4 +56,12 @@ export class ProductComponent implements OnInit, OnDestroy {
         }
     }
 
+    addToBasket(product: Product): void {
+        this.basketService.addItem({...product, quantity: 1})
+
+        this.purchaseMessage = true
+        setTimeout(() => {
+            this.purchaseMessage = false
+        }, 5000)
+    }
 }

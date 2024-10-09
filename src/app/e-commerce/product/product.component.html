@@ -8,7 +8,8 @@
             </div>
             <div>
                 <h1 class="price">$ {{selectedProduct!.price}}</h1>
-                <button class="btn btn-dark">Add to basket</button>
+                <button class="btn btn-dark" (click)="addToBasket(selectedProduct!)">Add to basket</button>
+                <h3 class="purchase_message mt-3" *ngIf="purchaseMessage">Product Added To Cart !</h3>
             </div>
         </div>
     </div>
