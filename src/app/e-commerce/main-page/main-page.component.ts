@@ -18,14 +18,17 @@ import { Subject, takeUntil } from 'rxjs'
 
 export class MainPageComponent implements OnInit, OnDestroy {
 
-    products: Product[] = []
-    filteredProducts: Product[] = []
-    
-    productCategories = Object.values(ProductCategory)
+    public productCategories = Object.values(ProductCategory)
 
-    currentPage = 1
-    itemsPerPage = 8
-    totalPages = 5
+    public currentPage = 1
+    public totalPages = 5
+    private itemsPerPage = 8
+
+    private products: Product[] = []
+    private filteredProducts: Product[] = []
+
+    private selectedCategory = ''
+    private searchTerm = ''
 
     private unsubscribe$ = new Subject<void>()
 
@@ -58,24 +61,28 @@ export class MainPageComponent implements OnInit, OnDestroy {
         })
     }
 
-    filterProducts(category: Event): void {
-        const selectedCategory = (category.target as HTMLSelectElement).value
-        if (selectedCategory) {
-            this.filteredProducts = this.products.filter((product: Product) => product.category === selectedCategory)
-        } else {
-            this.filteredProducts = this.products
-        }
+    applyFilters(): void {
+        this.filteredProducts = this.products.filter((product: Product) => {
+            const matchesCategory = this.selectedCategory ? product.category === this.selectedCategory : true
+            const matchesName = this.searchTerm ? product.name.toLowerCase().includes(this.searchTerm.toLowerCase()) : true
+            return matchesCategory && matchesName
+        })
         this.currentPage = 1
         this.calculateTotalPages()
     }
 
-    selectProduct(product: Product) {
-        this.productsService.selectProduct(product)
+    filterProductsByCategory(category: Event): void {
+        this.selectedCategory = (category.target as HTMLSelectElement).value
+        this.applyFilters()
     }
 
-    calculateTotalPages(): void {
-        const totalItems = this.filteredProducts.length;
-        this.totalPages = Math.ceil(totalItems / this.itemsPerPage);
+    filterProductsByName(nameValue: Event): void {
+        this.searchTerm = (nameValue.target as HTMLInputElement).value
+        this.applyFilters()
+    }
+
+    selectProduct(product: Product) {
+        this.productsService.selectProduct(product)
     }
 
     previousPage(): void {
@@ -89,5 +96,9 @@ export class MainPageComponent implements OnInit, OnDestroy {
     goToPage(pageNumber: number): void {
         this.currentPage = pageNumber
     }
-    
+
+    calculateTotalPages(): void {
+        const totalItems = this.filteredProducts.length
+        this.totalPages = Math.ceil(totalItems / this.itemsPerPage)
+    }
 }
