@@ -18,5 +18,4 @@ export class PrivacyNoticeComponent {
     closePrivacyNotice(): void {
         this.privacyNoticeService.changePrivacyNoticeStatus()
     }
-
 }
