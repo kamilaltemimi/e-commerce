@@ -9,6 +9,7 @@ import { BasketComponent } from './e-commerce/basket/basket.component';
 import { CheckoutComponent } from './e-commerce/checkout/checkout.component';
 import { ContactComponent } from './e-commerce/contact/contact.component';
 import { FaqComponent } from './e-commerce/FAQ/faq.component';
+import { ProductComponent } from './e-commerce/product/product.component';
 
 export const routes: Routes = [
 
@@ -18,7 +19,7 @@ export const routes: Routes = [
     { path: 'basket/checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
     { path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
     { path: 'FAQ', component: FaqComponent, canActivate: [AuthGuard]},
-    { path: 'product/:id', component: BasketComponent, canActivate: [AuthGuard]},
+    { path: 'product/:id', component: ProductComponent, canActivate: [AuthGuard]},
     { path: '**', redirectTo: ''}
 
 ];
