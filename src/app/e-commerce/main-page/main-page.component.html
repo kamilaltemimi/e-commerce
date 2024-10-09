@@ -1,1 +1,62 @@
-asd
+<div class="main_page_container px-5 py-4 w-100">
+    <div class="main_page_options_container w-100 d-flex align-items-center px-5 mb-3">
+        <div class="main_page_options_category d-flex align-items-center justify-content-between w-100">
+            <select class="form-select w-25">
+                <option value="" disabled selected>
+                    Select a category
+                </option>
+                <option  *ngFor="let category of productCategories">
+                    {{ category }}
+                </option>
+            </select>
+            <select class="form-select w-25">
+                <option value="" disabled selected>
+                    Sort by
+                </option>
+                <option>
+                    Price: low to high
+                </option>
+                <option>
+                    Price: high to low
+                </option>
+            </select>
+            <input class="form-control w-25" placeholder="Find item">
+        </div>
+    </div>
+
+    <div class="products_container w-100 d-flex justify-content-center">
+        <div class="container mx-0">
+            <div class="row">
+                <div class="col-3 mb-4 d-flex justify-content-between" *ngFor="let product of paginatedProducts">
+                    <div class="card" style="width: 18rem;" (click)="selectProduct(product)">
+                        <img src="{{product.image}}" class="product_image card-img-top p-2">
+                        <div class="card-body bg-light py-2 d-flex flex-column justify-content-around align-items-center">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <div class="card-title_price_button_container d-flex align-items-center justify-content-center gap-3">
+                                <h5 class="product_price m-0">$ {{product.price}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="d-flex justify-content-center mt-3">
+        <ul class="pagination">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+            <button class="page-link" (click)="previousPage()">Previous</button>
+            </li>
+    
+            <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index">
+            <button class="page-link" (click)="goToPage(i + 1)" [class.active]="currentPage === (i + 1)">
+                {{ i + 1 }}
+            </button>
+            </li>
+    
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <button class="page-link" (click)="nextPage()">Next</button>
+            </li>
+        </ul>
+    </nav>
+</div>

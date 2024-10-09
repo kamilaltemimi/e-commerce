@@ -1,0 +1,26 @@
+.main_page_options_container {
+    height: 60px;
+}
+
+.product_price {
+    color: #198754;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.card {
+    height: 375px;
+    border-radius: 20px;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 6px 1px rgba(66, 68, 90, 1);
+}
+
+.card-body{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
