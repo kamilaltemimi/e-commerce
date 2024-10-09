@@ -24,24 +24,21 @@ import { Subject, takeUntil } from 'rxjs'
 
 export class AuthComponent implements OnInit, OnDestroy {
     
-    isPrivacyNoticeActive = false
-    invalidCredentials = false
+    public isPrivacyNoticeActive = false
+    public invalidCredentials = false
 
-    authMethod = AuthMethod.login
+    public authMethod = AuthMethod.login
 
-    loginLength = 0
-    passwordLength = 0
+    private users: User[] = []
 
-    users: User[] = []
+    public authForm!: FormGroup
 
-    authForm!: FormGroup
-
-    credentialsLength = {
+    public credentialsLength = {
         email: 0,
         password: 0
     }
 
-    unsubscribe$ = new Subject<void>()
+    private unsubscribe$ = new Subject<void>()
 
     constructor(
         private privacyNoticeService: PrivacyNoticeService,
