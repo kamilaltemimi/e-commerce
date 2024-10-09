@@ -7,10 +7,9 @@ import { BehaviorSubject } from 'rxjs'
 export class PrivacyNoticeService {
 
     private privacyNoticeStatus = new BehaviorSubject<boolean>(false)
-    public privacyNoticeStatusObs = this.privacyNoticeStatus.asObservable()
+    public privacyNoticeStatus$ = this.privacyNoticeStatus.asObservable()
 
     changePrivacyNoticeStatus(): void {
         this.privacyNoticeStatus.next(!this.privacyNoticeStatus.value)
     }
-
 }

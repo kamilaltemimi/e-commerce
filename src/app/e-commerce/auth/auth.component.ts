@@ -117,7 +117,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     }
 
     followPrivacyNoticeStatus(): void {
-        this.privacyNoticeService.privacyNoticeStatusObs
+        this.privacyNoticeService.privacyNoticeStatus$
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe((data: boolean) => this.isPrivacyNoticeActive = data)
     }
