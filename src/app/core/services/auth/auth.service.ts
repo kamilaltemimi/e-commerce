@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { Router } from '@angular/router'
 
 import { BehaviorSubject, Observable } from 'rxjs'
 
 import { User } from '../../interfaces/user/user.interface'
-import { HttpClient } from '@angular/common/http'
-import { Router } from '@angular/router'
+
+import { BasketService } from '../basket/basket.service'
 
 @Injectable({providedIn: 'root'})
 
@@ -17,7 +19,8 @@ export class AuthService {
 
     constructor(
         private http: HttpClient,
-        private router: Router
+        private router: Router,
+        private basketService: BasketService
     ) {}
 
     changeIsLoggedInStatus(user: User): void {
@@ -26,7 +29,9 @@ export class AuthService {
 
     logout(): void {
         this.isLoggedIn.next(null)
-        localStorage.removeItem('user')
+        localStorage.clear()
+        this.basketService.setBasketQuantity = 0
+        this.basketService.setBasketData = []
         this.router.navigate(['/auth'])
     }
 
