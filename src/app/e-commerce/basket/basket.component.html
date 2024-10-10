@@ -22,7 +22,7 @@
                         </option>
                     </select>
                 </td>
-                <td>$ {{item.quantity * item.price}}</td>
+                <td>$ {{item.quantity * item.price | number: '1.2-2'}}</td>
                 <td><button class="btn btn-danger p-2"><img class="bin_image" src="assets/icons/trash/bin.png"></button></td>
               </tr>
             </tbody>
