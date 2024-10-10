@@ -10,6 +10,7 @@ import { AuthService } from '../../core/services/auth/auth.service'
 import { UserService } from '../../core/services/user/user.service'
 
 import { AuthMethod } from '../../core/enums/auth-method/auth-method.enum'
+import { ErrorMessage } from '../../core/enums/error-message/error-message.enum'
 import { User } from '../../core/interfaces/user/user.interface'
 
 import { Subject, takeUntil } from 'rxjs'
@@ -25,8 +26,16 @@ import { Subject, takeUntil } from 'rxjs'
 export class AuthComponent implements OnInit, OnDestroy {
     
     public isPrivacyNoticeActive = false
-    public invalidCredentials = false
 
+    public errors = {
+        login: false,
+        register: false
+    }
+    public errorMessage = {
+        loginError: ErrorMessage.loginError,
+        registerError: ErrorMessage.registerError
+    }
+    
     public authMethod = AuthMethod.login
 
     private users: User[] = []
@@ -65,7 +74,9 @@ export class AuthComponent implements OnInit, OnDestroy {
     }
 
     switchAuthMethod(): void {
-        this.invalidCredentials = false
+        this.errors.login = false
+        this.errors.register = false
+        this.authForm.reset()
         if (this.authMethod === AuthMethod.login) {
             this.authMethod = AuthMethod.register
         } else {
@@ -74,8 +85,9 @@ export class AuthComponent implements OnInit, OnDestroy {
     }
 
     submitAuthForm(): void {
+        const { password, email} = this.authForm.value
+
         if (this.authMethod === AuthMethod.login) {
-            const { password, email} = this.authForm.value
             if (this.users) {
                 const userFound = this.users.find((user: User) => user.email === email && user.password === password)
                 if (userFound) {
@@ -83,14 +95,20 @@ export class AuthComponent implements OnInit, OnDestroy {
                     this.router.navigate([''])
                     localStorage.setItem('user', JSON.stringify(userFound))
                 } else {
-                    this.invalidCredentials = true
+                    this.errors.login = true
                 }
             }
         } else {
+            const userFound = this.users.find((user: User) => user.email === email && user.password === password)
+            if (userFound) {
+                this.errors.register = true
+                return
+            }
             const userToRegister = this.authForm.value
             this.authService.registerUser(userToRegister)
-            .pipe(takeUntil(this.unsubscribe$))
-            .subscribe()
+                .pipe(takeUntil(this.unsubscribe$))
+                .subscribe(() => this.getUsers())
+            this.authForm.reset()
         }
     }
 
@@ -109,16 +127,16 @@ export class AuthComponent implements OnInit, OnDestroy {
 
     controlCredentialsLength(): void {
         this.authForm.get('email')?.valueChanges
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((data: string) => this.credentialsLength.email = data.length)
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe((data: string) => this.credentialsLength.email = data.length)
         this.authForm.get('password')?.valueChanges
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((data: string) => this.credentialsLength.password = data.length)
-    }
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe((data: string) => this.credentialsLength.password = data.length)
+        }
 
     followPrivacyNoticeStatus(): void {
         this.privacyNoticeService.privacyNoticeStatus$
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((data: boolean) => this.isPrivacyNoticeActive = data)
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe((data: boolean) => this.isPrivacyNoticeActive = data)
     }
 }

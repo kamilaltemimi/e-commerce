@@ -1,4 +1,4 @@
-<div class="page_container d-flex justify-content-center align-items-center">
+<div class="page_container w-100 d-flex justify-content-center align-items-center">
     <div class="content_container">
         <form class="form" [formGroup]="authForm" (ngSubmit)="submitAuthForm()">
             <h2 class="mb-3">{{authMethod}}</h2>
@@ -13,7 +13,8 @@
                 <input type="password" class="form-control" formControlName="password" id="password" maxlength="30">
             </div>
             <p class="credentials_length mb-3">length: {{credentialsLength.password}} / 30</p>
-            <p *ngIf="invalidCredentials" class="invalid_credentials">Invalid login credentials</p>
+            <p *ngIf="errors.login" class="invalid_credentials">{{errorMessage.loginError}}</p>
+            <p *ngIf="errors.register" class="invalid_credentials">{{errorMessage.registerError}}</p>
             <button [disabled]="!authForm.valid" type="submit" class="button mb-2 w-100 btn btn-warning">Continue</button>
             <div class="w-100 d-flex justify-content-center">
                 <p class="privacy_notice">By clicking continue, you agree to our <span><a class="privacy_notice_click" (click)="changePrivacyNoticeStatus()">Privacy Notice</a></span></p>
