@@ -1,6 +1,6 @@
 .content_container {
     width: 900px;
-    height: 500px;
+    border: 1px solid black;
 }
 
 .item_image {
@@ -9,4 +9,8 @@
 
 .bin_image {
     width: 20px;
+}
+
+.checkout_button {
+    height: 40px;
 }

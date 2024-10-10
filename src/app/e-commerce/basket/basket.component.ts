@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common';
 
 import { BasketService } from '../../core/services/basket/basket.service';
+import { RoutingService } from '../../core/services/routing/routing.service';
 
 import { Product } from '../../core/interfaces/product/product.interface';
 
@@ -18,8 +19,13 @@ export class BasketComponent implements OnInit {
     public basket: Product[] = []
 
     constructor (
-        private basketService: BasketService
+        private basketService: BasketService,
+        private routingService: RoutingService
     ) {}
+
+    get getBasketSum() {
+        return this.basketService.BasketSum
+    }
 
     ngOnInit(): void {
         this.fetchProductData()
@@ -32,6 +38,9 @@ export class BasketComponent implements OnInit {
     
     fetchProductData(): void {
         this.basketService.basketData$.subscribe((data: Product[]) => this.basket = data)
+    }
 
+    checkout(): void {
+        this.routingService.navigate('basket/checkout')
     }
 }
