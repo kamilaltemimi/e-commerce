@@ -1,0 +1,44 @@
+<div class="page_container w-100 d-flex justify-content-center pt-5">
+    <div class="payment_container bg-light p-3">
+        <h6 class="pb-3">Billing address</h6>
+        <form [formGroup]="paymentForm" (ngSubmit)="pay()">
+            <div class="mb-3">
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email">
+                <h6 class="error_message mt-2 mx-1" *ngIf="paymentForm.get('email')?.touched && paymentForm.get('email')?.errors?.['required']">Email required</h6>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="fullName" id="fullName" placeholder="Full Name">
+                <h6 class="error_message mt-2 mx-1" *ngIf="paymentForm.get('fullName')?.touched && paymentForm.get('fullName')?.errors?.['required']">Full Name required</h6>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="address" id="address" placeholder="Address">
+                <h6 class="error_message mt-2 mx-1" *ngIf="paymentForm.get('address')?.touched && paymentForm.get('address')?.errors?.['required']">Address required</h6>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="zip" id="exampleFormControlInput1" placeholder="zip" minlength="5" maxlength="6">
+                <h6 class="error_message mt-2 mx-1" *ngIf="paymentForm.get('zip')?.touched && paymentForm.get('zip')?.errors?.['required']">ZIP required</h6>
+            </div>
+            <hr>
+            <h6 class="pb-3">Payment</h6>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="nameOnCard" id="nameOnCard" placeholder="Name on card">
+                <h6 class="error_message mt-2 mx-1" *ngIf="paymentForm.get('nameOnCard')?.touched && paymentForm.get('nameOnCard')?.errors?.['required']">Name on card required</h6>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="creditCardNumber" id="creditCardNumber" placeholder="Credit card number" minlength="20" maxlength="24">
+                <h6 class="error_message mt-2 mx-1" *ngIf="paymentForm.get('creditCardNumber')?.touched && paymentForm.get('creditCardNumber')?.errors?.['required']">Credit card number required</h6>
+            </div>
+            <div class="mb-3">
+                <input type="date" class="form-control" formControlName="expiration" id="expiration" placeholder="Expiration">
+                <h6 class="error_message mt-2 mx-1" *ngIf="paymentForm.get('expiration')?.touched && paymentForm.get('expiration')?.errors?.['required']">Expiration required</h6>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" formControlName="cvv" id="cvv" placeholder="CVV" minlength="3" maxlength="3">
+                <h6 class="error_message mt-2 mx-1" *ngIf="paymentForm.get('cvv')?.touched && paymentForm.get('cvv')?.errors?.['required']">CVV required</h6>
+            </div>
+            <h6 class="mx-1">Amount to pay: ${{basketSum}}</h6>
+            <hr>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="paymentForm.invalid">Pay</button>
+        </form>
+    </div>
+</div>
