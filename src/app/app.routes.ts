@@ -10,6 +10,7 @@ import { CheckoutComponent } from './e-commerce/checkout/checkout.component';
 import { ContactComponent } from './e-commerce/contact/contact.component';
 import { FaqComponent } from './e-commerce/FAQ/faq.component';
 import { ProductComponent } from './e-commerce/product/product.component';
+import { DeliveryConfirmationComponent } from './e-commerce/deliveryConfirmation/deliveryConfirmation.component';
 
 export const routes: Routes = [
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
     { path: 'FAQ', component: FaqComponent, canActivate: [AuthGuard]},
     { path: 'product/:id', component: ProductComponent, canActivate: [AuthGuard]},
+    { path: 'delivery-confirmation', component: DeliveryConfirmationComponent, canActivate: [AuthGuard]},
     { path: '**', redirectTo: ''}
 
 ];
