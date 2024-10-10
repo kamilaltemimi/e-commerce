@@ -8,18 +8,16 @@ import { BehaviorSubject } from 'rxjs'
 
 export class BasketService {
 
-    private basket: Product[] = []
-
     private basketQuantity = new BehaviorSubject<number>(0)
     public basketQuantity$ = this.basketQuantity.asObservable()
 
-    private basketBehaviorSubject = new BehaviorSubject<Product[]>(this.basket)
+    private basketBehaviorSubject = new BehaviorSubject<Product[]>([])
     public basketData$ = this.basketBehaviorSubject.asObservable()
 
     constructor() {}
 
     set setBasketData(products: Product[]) {
-        this.basket = products
+        this.basketBehaviorSubject.next(products)
     }
 
     set setBasketQuantity(value: number) {
@@ -27,20 +25,33 @@ export class BasketService {
     }
 
     addItem(item: Product): void {
-        const existingProductIndex = this.basket.findIndex((product: Product) => product.id === item.id)
-
-        this.basketQuantity.next(this.basketQuantity.value + 1)
+        const basket = [...this.basketBehaviorSubject.value]
+        const existingProductIndex = this.basketBehaviorSubject.value.findIndex((product: Product) => product.id === item.id)
 
         if (existingProductIndex !== -1) {
-            this.basket[existingProductIndex].quantity++
+            basket[existingProductIndex] = {...basket[existingProductIndex], quantity: basket[existingProductIndex].quantity + 1}
         } else {
-            this.basket.push(item)
+           basket.push(item)
+        }
+        this.basketQuantity.next(this.basketQuantity.value + 1)
+        this.basketBehaviorSubject.next(basket)
+        this.updateLocalStorage()
+    }
+
+    updateItemQuantity(item: Product, newQuantity: number) {
+        const basket = [...this.basketBehaviorSubject.value]
+        const updatedItemIndex = basket.findIndex((product: Product) => product.id === item.id)
+
+        if (updatedItemIndex !== -1) {
+            this.basketQuantity.next(this.basketQuantity.value - basket[updatedItemIndex].quantity + newQuantity)
+            basket[updatedItemIndex].quantity = newQuantity
+            this.basketBehaviorSubject.next(basket)
         }
         this.updateLocalStorage()
     }
 
     updateLocalStorage(): void {
-        localStorage.setItem('basket', JSON.stringify(this.basket))
+        localStorage.setItem('basket', JSON.stringify(this.basketBehaviorSubject.value))
         localStorage.setItem('basketQuantity', JSON.stringify(this.basketQuantity.value))
     }
 }
