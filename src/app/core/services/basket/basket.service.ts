@@ -16,11 +16,19 @@ export class BasketService {
 
     constructor() {}
 
-    set setBasketData(products: Product[]) {
+    get BasketSum() {
+        let basketSum = 0
+        this.basketBehaviorSubject.value.forEach((product: Product) => {
+            basketSum += product.price * product.quantity
+        })
+        return basketSum
+    }
+
+    set BasketData(products: Product[]) {
         this.basketBehaviorSubject.next(products)
     }
 
-    set setBasketQuantity(value: number) {
+    set BasketQuantity(value: number) {
         this.basketQuantity.next(value)
     }
 
@@ -29,6 +37,10 @@ export class BasketService {
         const existingProductIndex = this.basketBehaviorSubject.value.findIndex((product: Product) => product.id === item.id)
 
         if (existingProductIndex !== -1) {
+            if(basket[existingProductIndex].quantity === 9) {
+                console.log('bye')
+                return
+            }
             basket[existingProductIndex] = {...basket[existingProductIndex], quantity: basket[existingProductIndex].quantity + 1}
         } else {
            basket.push(item)
