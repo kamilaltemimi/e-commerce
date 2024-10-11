@@ -3,3 +3,15 @@
     color: rgba(0, 0, 0, 0.765);
     border-radius: 5px;
 }
+
+@media ( max-width: 620px ) {
+    .delivery_info_container {
+        width: 400px;
+    }
+}
+
+@media ( max-width: 450px ) {
+    .delivery_info_container {
+        width: 350px;
+    }
+}
