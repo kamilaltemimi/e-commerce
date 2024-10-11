@@ -41,10 +41,10 @@ export class ProductComponent implements OnInit, OnDestroy {
 
     getSelectedProductData(): void {
         this.productsService.selectedProduct$
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((data: Product | null) => {
-            this.selectedProduct = data
-        })
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe((data: Product | null) => {
+                this.selectedProduct = data
+            })
     }
 
     getSelectedProductsInCaseOfRefreshingPage(): void {

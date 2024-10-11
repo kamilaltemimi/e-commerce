@@ -50,10 +50,10 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
     getActiveUserEmail(): void {
         this.authService.isLoggedIn$
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((user: User | null) => {
-            if (user) this.activeUserEmail = user.email
-        })
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe((user: User | null) => {
+                if (user) this.activeUserEmail = user.email
+            })
     }
 
     initializeForm(): void {
@@ -77,8 +77,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         console.log(this.paymentForm.value)
         this.paymentConfirmationService.DeliveryInfo = this.paymentForm.value
         this.paymentForm.reset()
-        this.basketService.BasketData = []
-        this.basketService.BasketQuantity = 0
+        this.basketService.setBasketData = []
+        this.basketService.setBasketQuantity = 0
         this.removeLocalStorage(['basketQuantity', 'basket', 'selectedProduct'])
         this.routingService.navigate('delivery-confirmation')
     }
