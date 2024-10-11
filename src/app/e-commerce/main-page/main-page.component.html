@@ -1,33 +1,33 @@
 <div class="main_page_container px-5 py-4 w-100">
     <div class="main_page_options_container w-100 d-flex align-items-center px-5 mb-3">
-        <div class="main_page_options_category d-flex align-items-center justify-content-between w-100">
-            <select class="form-select w-25" (change)="filterProductsByCategory($event)">
+        <div class="main_page_options_category d-flex flex-column flex-md-row align-items-center justify-content-between w-100 gap-3">
+            <select class="form-select w-100" (change)="filterProductsByCategory($event)">
                 <option value="" selected>
-                    Select a category
+                    Category
                 </option>
                 <option *ngFor="let category of productCategories" [value]="category">
                     {{ category }}
                 </option>
             </select>
-            <select class="form-select w-25">
-                <option value="" disabled selected>
+            <select class="form-select w-100" (change)="sortByPrice($event)">
+                <option disabled selected>
                     Sort by
                 </option>
-                <option>
+                <option value="lowToHigh">
                     Price: low to high
                 </option>
-                <option>
+                <option value="highToLow">
                     Price: high to low
                 </option>
             </select>
-            <input class="form-control w-25" placeholder="Find item" (input)="filterProductsByName($event)">
+            <input class="form-control w-100" placeholder="Find item" (input)="filterProductsByName($event)">
         </div>
     </div>
 
     <div class="products_container w-100 d-flex justify-content-center">
         <div class="container mx-0">
             <div class="row">
-                <div class="col-3 mb-4 d-flex justify-content-between" *ngFor="let product of paginatedProducts">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center" *ngFor="let product of paginatedProducts">
                     <div class="card" style="width: 18rem;" (click)="selectProduct(product)">
                         <img src="{{product.image}}" class="product_image card-img-top p-2">
                         <div class="card-body bg-light py-2 d-flex flex-column justify-content-around align-items-center">
