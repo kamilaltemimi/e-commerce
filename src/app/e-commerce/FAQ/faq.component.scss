@@ -1,0 +1,17 @@
+.faq_list {
+    list-style: none;
+}
+
+.answer {
+    text-align: center;
+}
+
+.logo {
+    width: 370px;
+}
+
+@media (max-width: 450px) {
+    .question {
+        font-size: 16px;
+    }
+}
