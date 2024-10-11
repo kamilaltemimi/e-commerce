@@ -1,0 +1,26 @@
+<div class="w-100 d-flex flex-column align-items-center">
+    <div class="form_container bg-light mt-5 p-5">
+        <h1>Let's keep in touch!</h1>
+        <form [formGroup]="contactForm" (ngSubmit)="sendMessage()" class="form pt-5">
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" formControlName="fullName">
+                <p class="error-text" *ngIf="contactForm.get('fullName')?.invalid && contactForm.get('fullName')?.touched">Proszę wpisać imię</p>
+            </div>
+            <div class="mb-3">    
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <p class="error-text" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">Proszę wpisać poprawny adres email</p>
+            </div>
+            <div class="mb-3">
+                <label for="text" class="form-label">Message</label>
+                <textarea type="text" class="form-control text_message" id="text" formControlName="message"></textarea>
+                <p class="error-text" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Proszę napisać wiadomość</p>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary w-100 mb-3" [disabled]="!contactForm.valid">Send</button>
+            <div class="alert alert-success" role="alert" *ngIf="confirmation">Message has been sent</div>
+            <div class="alert alert-danger" role="alert" *ngIf="error">Failed to send a message</div>
+        </form>
+    </div>
+</div>
