@@ -109,6 +109,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
     goToPage(pageNumber: number): void {
         this.currentPage = pageNumber
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     calculateTotalPages(): void {
