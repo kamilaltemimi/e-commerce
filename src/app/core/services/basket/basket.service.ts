@@ -24,11 +24,11 @@ export class BasketService {
         return basketSum
     }
 
-    set BasketData(products: Product[]) {
+    set setBasketData(products: Product[]) {
         this.basketBehaviorSubject.next(products)
     }
 
-    set BasketQuantity(value: number) {
+    set setBasketQuantity(value: number) {
         this.basketQuantity.next(value)
     }
 
@@ -60,6 +60,18 @@ export class BasketService {
             this.basketBehaviorSubject.next(basket)
         }
         this.updateLocalStorage()
+    }
+
+    removeProductFromBasket(product: Product) {
+        const basket = this.basketBehaviorSubject.value
+        const productIndex = basket.findIndex((productInBasket: Product) => productInBasket.id === product.id)
+       
+        if (productIndex !== -1) {
+            basket.splice(productIndex, 1)
+            this.basketBehaviorSubject.next(basket)
+            this.basketQuantity.next(this.basketQuantity.value - product.quantity)
+            this.updateLocalStorage()
+        }
     }
 
     updateLocalStorage(): void {
