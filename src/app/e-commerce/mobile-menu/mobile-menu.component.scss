@@ -1,0 +1,14 @@
+.mobile_menu_list {
+    list-style: none;
+}
+
+.listitem {
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.listitem:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: 0.1s;
+}

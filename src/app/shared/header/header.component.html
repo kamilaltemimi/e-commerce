@@ -1,6 +1,6 @@
 <div class="navbar bg-warning">
     <div class="container-fluid content_container">
-        <img class="logo navbar-brand" src="assets/images/logo/logo.svg">
+        <img class="logo navbar-brand" (click)="navigate('')" src="assets/images/logo/logo.svg">
         <ul class="menu_list d-flex justify-content-between m-0">
             <li class="menu_listitem" (click)="navigate('')">
                 Store
@@ -25,5 +25,9 @@
                 Logout
             </li>
         </ul>
+        <div class="hamburger_container">
+            <a (click)="activateMobileMenu()"><img class="hamburger" src="assets/images/hamburger-menu/hamburger.png"></a>
+        </div>
     </div>
 </div>
+<app-mobile-menu class="mobile_menu" *ngIf="mobileMenuActivated"></app-mobile-menu>
