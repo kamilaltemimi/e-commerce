@@ -42,12 +42,12 @@ export class AppComponent implements OnInit {
     const basketData = localStorage.getItem('basket')
     if (basketData) {
       const parsedBasketData = JSON.parse(basketData)
-      this.basketService.BasketData = parsedBasketData
+      this.basketService.setBasketData = parsedBasketData
     }
 
     const basketQuantity = localStorage.getItem('basketQuantity')
     if (basketQuantity) {
-      this.basketService.BasketQuantity = JSON.parse(basketQuantity)
+      this.basketService.setBasketQuantity = JSON.parse(basketQuantity)
     }
   }
 }
