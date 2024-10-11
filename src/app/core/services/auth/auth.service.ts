@@ -30,8 +30,8 @@ export class AuthService {
     logout(): void {
         this.isLoggedIn.next(null)
         localStorage.clear()
-        this.basketService.BasketQuantity = 0
-        this.basketService.BasketData = []
+        this.basketService.setBasketQuantity = 0
+        this.basketService.setBasketData = []
         this.router.navigate(['/auth'])
     }
 
