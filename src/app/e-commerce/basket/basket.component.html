@@ -1,36 +1,36 @@
-<div class="page_container w-100 d-flex justify-content-center align-items-center pt-5">
-    <div class="content_container bg-light px-5 pt-5">
+<div class="page_container w-100 d-flex justify-content-center align-items-center pt-5 p-3">
+    <div class="content_container bg-light px-3 pt-5">
         <h1>Basket</h1>
         <table class="table">
             <thead>
               <tr>
                 <th scope="col"></th>
-                <th scope="col">Product</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Remove</th>
+                <th class="text-center product_title" scope="col">Product</th>
+                <th class="text-center" scope="col">Quantity</th>
+                <th class="text-center" scope="col">Price</th>
+                <th class="text-center" scope="col">Remove</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of basket" class="align-middle">
-                <td><img class="item_image" src="{{item.image}}"></td>
-                <td class="item_name"><h5>{{item.name}}</h5></td>
-                <td>
+                <td class="text-center item_image"><img class="item_image" src="{{item.image}}"></td>
+                <td class="text-center item_name"><h5>{{item.name}}</h5></td>
+                <td class="text-center">
                     <select class="form-select align-middle" (change)="onChangeQuantity(item, $event)">
                         <option *ngFor="let qty of [1, 2, 3, 4, 5, 6, 7, 8, 9]" [value]="qty" [selected]="qty === item.quantity">
                             {{qty}}
                         </option>
                     </select>
                 </td>
-                <td>$ {{item.quantity * item.price | number: '1.2-2'}}</td>
-                <td><button class="btn btn-danger p-2"><img class="bin_image" src="assets/icons/trash/bin.png"></button></td>
+                <td class="text-center price">$ {{item.quantity * item.price | number: '1.2-2'}}</td>
+                <td class="text-center"><button class="btn btn-danger p-2" (click)="removeItemFromBasket(item)"><img class="bin_image" src="assets/icons/trash/bin.png"></button></td>
               </tr>
             </tbody>
         </table>
         <div class="sum_container pb-3 pt-1 d-flex gap-3 justify-content-end">
                 <h2>Sum:</h2>
                 <h2>${{getBasketSum | number: '1.2-2'}}</h2>
-            <button class="checkout_button btn btn-outline-dark" (click)="checkout()">Checkout</button>
+            <button class="checkout_button btn btn-outline-dark" [disabled]="basket.length === 0" (click)="checkout()">Checkout</button>
         </div>
     </div>
 </div>

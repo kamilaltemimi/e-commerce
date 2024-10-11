@@ -35,6 +35,10 @@ export class BasketComponent implements OnInit {
         const newQuantity = Number((event.target as HTMLSelectElement).value)
         this.basketService.updateItemQuantity(item, newQuantity)
     }
+
+    removeItemFromBasket(product: Product) {
+        this.basketService.removeProductFromBasket(product)
+    }
     
     fetchProductData(): void {
         this.basketService.basketData$.subscribe((data: Product[]) => this.basket = data)

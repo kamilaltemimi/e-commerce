@@ -14,3 +14,18 @@
 .checkout_button {
     height: 40px;
 }
+
+@media (max-width: 730px) {
+    .product_title, .item_name {
+        display: none;
+    }
+}
+
+@media (max-width: 490px) {
+    .item_image {
+        width: 80px;
+    }
+    .price {
+        font-size: 15px;
+    }
+}
