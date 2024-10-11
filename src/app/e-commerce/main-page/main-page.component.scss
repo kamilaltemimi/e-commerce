@@ -11,7 +11,7 @@
 }
 
 .card {
-    height: 375px;
+    height: 390px;
     border-radius: 20px;
 }
 
@@ -23,4 +23,10 @@
 .card-body{
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+@media( max-width: 770px ) {
+    .main_page_options_container {
+        height: 200px;
+    }
 }

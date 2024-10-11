@@ -53,12 +53,12 @@ export class MainPageComponent implements OnInit, OnDestroy {
     
     getAllProducts(): void {
         this.productsService.getAllProducts()
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((data: Product[]) => {
-            this.products = data
-            this.filteredProducts = data
-            this.calculateTotalPages()
-        })
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe((data: Product[]) => {
+                this.products = data
+                this.filteredProducts = data
+                this.calculateTotalPages()
+            })
     }
 
     applyFilters(): void {
@@ -79,6 +79,20 @@ export class MainPageComponent implements OnInit, OnDestroy {
     filterProductsByName(nameValue: Event): void {
         this.searchTerm = (nameValue.target as HTMLInputElement).value
         this.applyFilters()
+    }
+
+    sortByPrice(event: Event): void {
+        const value = (event.target as HTMLSelectElement).value
+        switch (value) {
+            case 'lowToHigh':
+                this.filteredProducts.sort((a, b) => a.price - b.price)
+                break
+            case 'highToLow':
+                this.filteredProducts.sort((a, b) => b.price - a.price)
+                break
+            default:
+            break
+        }
     }
 
     selectProduct(product: Product) {
