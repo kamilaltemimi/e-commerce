@@ -101,10 +101,12 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
     previousPage(): void {
         this.currentPage--
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     nextPage(): void {
         this.currentPage++
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     goToPage(pageNumber: number): void {
