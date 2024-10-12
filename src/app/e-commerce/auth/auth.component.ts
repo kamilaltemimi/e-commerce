@@ -26,6 +26,7 @@ import { Subject, takeUntil } from 'rxjs'
 export class AuthComponent implements OnInit, OnDestroy {
     
     public isPrivacyNoticeActive = false
+    public accountCreated = false
 
     public errors = {
         login: false,
@@ -74,6 +75,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     }
 
     switchAuthMethod(): void {
+        this.accountCreated = false
         this.errors.login = false
         this.errors.register = false
         this.authForm.reset()
@@ -109,6 +111,7 @@ export class AuthComponent implements OnInit, OnDestroy {
                 .pipe(takeUntil(this.unsubscribe$))
                 .subscribe(() => this.getUsers())
             this.authForm.reset()
+            this.accountCreated = true
         }
     }
 
