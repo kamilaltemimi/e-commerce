@@ -28,8 +28,8 @@
             </tbody>
         </table>
         <div class="sum_container pb-3 pt-1 d-flex gap-3 justify-content-end">
-                <h2>Sum:</h2>
-                <h2>${{getBasketSum | number: '1.2-2'}}</h2>
+                <h2 class="m-0">Sum:</h2>
+                <h2 class="m-0">${{getBasketSum | number: '1.2-2'}}</h2>
             <button class="checkout_button btn btn-outline-dark" [disabled]="basket.length === 0" (click)="checkout()">Checkout</button>
         </div>
     </div>
