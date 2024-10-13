@@ -104,6 +104,7 @@ export class AuthComponent implements OnInit, OnDestroy {
             const userFound = this.users.find((user: User) => user.email === email && user.password === password)
             if (userFound) {
                 this.errors.register = true
+                this.accountCreated = false
                 return
             }
             const userToRegister = this.authForm.value
