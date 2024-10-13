@@ -5,17 +5,17 @@
             <div class="mb-3">
                 <label for="fullName" class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="fullName" formControlName="fullName">
-                <p class="error-text" *ngIf="contactForm.get('fullName')?.invalid && contactForm.get('fullName')?.touched">Proszę wpisać imię</p>
+                <p class="error-text" *ngIf="contactForm.get('fullName')?.invalid && contactForm.get('fullName')?.touched">Please enter your name</p>
             </div>
             <div class="mb-3">    
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" formControlName="email">
-                <p class="error-text" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">Proszę wpisać poprawny adres email</p>
+                <p class="error-text" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">Please enter your email</p>
             </div>
             <div class="mb-3">
                 <label for="text" class="form-label">Message</label>
                 <textarea type="text" class="form-control text_message" id="text" formControlName="message"></textarea>
-                <p class="error-text" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Proszę napisać wiadomość</p>
+                <p class="error-text" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Please write a message</p>
             </div>
             <hr>
             <button type="submit" class="btn btn-primary w-100 mb-3" [disabled]="!contactForm.valid">Send</button>
