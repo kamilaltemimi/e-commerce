@@ -79,6 +79,7 @@ export class AuthComponent implements OnInit, OnDestroy {
         this.errors.login = false
         this.errors.register = false
         this.authForm.reset()
+        this.credentialsLength = {email: 0, password: 0}
         if (this.authMethod === AuthMethod.login) {
             this.authMethod = AuthMethod.register
         } else {
@@ -114,6 +115,7 @@ export class AuthComponent implements OnInit, OnDestroy {
             this.authForm.reset()
             this.accountCreated = true
         }
+        this.credentialsLength = {email: 0, password: 0}
     }
 
     initializeForm(): void {
